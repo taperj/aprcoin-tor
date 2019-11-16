@@ -15,12 +15,10 @@ RUN apt-get update \
 	&&    chmod 755 Ubuntu/aprcoin* \
 	&&    mv -v Ubuntu/aprcoin* /usr/bin \
 	&&    rm -vrf Ubuntu aprcoin-v3.1.0-linux.zip \
-	&&    useradd -s /sbin/nologin -m -d /home/aprcoin aprcoin \
+	&&    useradd -s /usr/sbin/nologin -m -d /home/aprcoin aprcoin \
 	&&    export CONF_DIR=/home/aprcoin/.aprcoin \
 	&&    mkdir -v $CONF_DIR \
 	&&    chown -vR aprcoin:aprcoin $CONF_DIR \
-	&&    export CONF_FILE=aprcoin.conf \
-	&&    export PORT=3134 \
 	&&    wget https://github.com/XeZZoR/scripts/raw/master/APR/peers.dat -O $CONF_DIR/peers.dat \
 	&&    chown -v aprcoin:aprcoin /home/aprcoin/.aprcoin/peers.dat \
 	&&    echo "Setting up /etc/tor/torrc" \
@@ -29,7 +27,8 @@ RUN apt-get update \
 	&&    echo "HiddenServiceDir /home/debian-tor/.torhiddenservice/" >> /etc/tor/torrc \
 	&&    echo "HiddenServicePort 3134 127.0.0.1:3134" >> /etc/tor/torrc \
 	# Hashed Password is "privacyisimportant" change this with tor --hash-password <yournewpassword> 
-	# and use the ouput to replace the following in torrc.
+	# and use the ouput to replace the following in /etc/tor/torrc. Make sure to also update aprcoin.conf torpassword= with the 
+        # new password in plain text, not hashed.
 	&&    echo "HashedControlPassword 16:308DF1B8630F039660304560615E238EC2F1E6A992BB94C67CE4CD60D5" >> /etc/tor/torrc \
 	&&    echo "Done."
 
