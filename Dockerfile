@@ -4,7 +4,7 @@ RUN apt-get update \
 	&&    apt-get install curl wget unzip -y \
 	&&    curl --fail --silent -L https://github.com/just-containers/s6-overlay/releases/download/v1.21.8.0/s6-overlay-amd64.tar.gz | tar xzvf - -C / \
 	&&    apt-get install -y sudo libboost1.58 tor software-properties-common libzmq5 libminiupnpc10 libevent-pthreads-2.0-5 \
-	&&    add-apt-repository  -y  ppa:bitcoin/bitcoin \
+	&&    add-apt-repository -y ppa:bitcoin/bitcoin \
 	&&    apt-get update \
 	&&    apt-get install -y libdb4.8 libdb4.8++ \
 	&&    mkdir -v /home/debian-tor \
@@ -19,8 +19,6 @@ RUN apt-get update \
 	&&    export CONF_DIR=/home/aprcoin/.aprcoin \
 	&&    mkdir -v $CONF_DIR \
 	&&    chown -vR aprcoin:aprcoin $CONF_DIR \
-	&&    wget https://github.com/XeZZoR/scripts/raw/master/APR/peers.dat -O $CONF_DIR/peers.dat \
-	&&    chown -v aprcoin:aprcoin /home/aprcoin/.aprcoin/peers.dat \
 	&&    echo "Setting up /etc/tor/torrc" \
 	&&    echo "User debian-tor" >> /etc/tor/torrc \
 	&&    echo "DataDirectory /home/debian-tor/.tor" >> /etc/tor/torrc \
@@ -34,8 +32,11 @@ RUN apt-get update \
 	&&    echo "Done."
 
 COPY ./services /etc/services.d/
+##Comment out the next 3 lines if you are going to sync the blockchain from scratch. 
 COPY --chown=aprcoin:aprcoin blocks /home/aprcoin/.aprcoin/blocks
 COPY --chown=aprcoin:aprcoin chainstate /home/aprcoin/.aprcoin/chainstate
 COPY --chown=aprcoin:aprcoin sporks /home/aprcoin/.aprcoin/sporks
+##End blockchain section.
 COPY --chown=aprcoin:aprcoin aprcoin.conf /home/aprcoin/.aprcoin/
+COPY --chown=aprcoin:aprcoin peers.dat /home/aprcoin/.aprcoin/
 ENTRYPOINT [ "/init" ]
