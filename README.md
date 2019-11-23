@@ -10,7 +10,7 @@ The Dockerfile is configured to use the docker COPY function to copy the blockch
 example directory structure once this project is pulled and the blockchain directories have been uploaded to the root directory of the project:<br>
 <br>
 $ ls                                                                                      
-aprcoin.conf  blocks  chainstate  Dockerfile  services  sporks<br>
+aprcoin.conf  blocks  chainstate  Dockerfile  peers.dat  README.md  services  sporks<br>
 
 I will be adding a wrapper script to add aprcoin configuration options easily in the future. For the moment manually edit the aprcoin.conf file using a text editor. The configuration directives that need to be edited will be:
 
