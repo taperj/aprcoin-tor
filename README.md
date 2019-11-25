@@ -9,6 +9,8 @@ I have completed and uploaded the installer script 'install.sh', this script sho
 Steps to install:<br>
 clone the repository with git:<br>
 <code>git clone https://github.com/taperj/aprcoin-tor</code><br>
+Change directory to the root of the project:<br>
+<code>cd aprcoin-tor</code><br>
 (if you want to bootstrap the blockchain upload the chainstate, sporks, and blocks directories you want to use to the root directory of the project, if not bootstrapping then simply run the script and aprcoind will sync the blockchain from scratch)<br>
 <code>./install.sh</code><br>
 
