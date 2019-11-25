@@ -4,7 +4,16 @@ docker container: aprcoin masternode with tor
 Description and purpose:
 This repository is my contribution as a resource to easily build a docker image and create a container that contains a hot APRCoin wallet configured to run as a masternode, aprcoind uses Tor to connect to the network for privacy and anonymity. Tor is also contained within the container making this an all-in-one solution using s6-init to run multiple processes in the same container. The linkage bewtween aprcoind and the local Tor is configured on build of the image. All of the processes within the container have been set up to run as their proper non-privileged users. Tor runs as user debian-tor within the container and aprcoind runs as user aprcoin. The image is based on ubuntu 16.04 and the Dockerfile will pull this image as a base on build.
 
-<b>NEED TO KNOW INFO TO BUILD:</b><br>
+<b>NEW BUILD INFO(11-24-2019)</b><br>
+I have completed and uploaded the installer script 'install.sh', this script should take care of all installer tasks outlined in the old install method except for changing the tor controller password which you should do, see below for instructions on how to accomplish this.<br>
+Steps to install:<br>
+clone the repository with git:<br>
+<code>git clone https://github.com/taperj/aprcoin-tor</code><br>
+(if you want to bootstrap the blockchain upload the chainstate, sporks, and blocks directories you want to use to the root directory of the project, if not bootstrapping then simply run the script and aprcoind will sync the blockchain from scratch)<br>
+<code>./install.sh</code><br>
+
+
+<b>OLD NEED TO KNOW INFO TO BUILD: DEPRECATED, left for general info</b><br>
 The Dockerfile is configured to use the docker COPY function to copy the blockchain into the image as a bootstrap. I am not able to upload the blockchain to be pulled from github due to filesize restrictions. As this is meant for a hot-cold setup I would suggest syncing your cold wallet on your local pc fully, once synced shutdown aprcoin-qt and sync the blocks, chainstate, and sporks directories to the root directory of the project. If you do not want to go through this you may comment out the three lines in the Dockerfile that deal with copying these 3 directories into the image and on start aprcoind will begin syncing the blockchain from scratch.
 
 example directory structure once this project is pulled and the blockchain directories have been uploaded to the root directory of the project:<br>
