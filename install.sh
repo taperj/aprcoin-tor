@@ -125,21 +125,21 @@ printf "${YELLOW}BEGINNING INSTALL...${NC}\n"
 printf "${YELLOW}Checking for blockchain bootstrap directories...${NC}\n"
 if [ ! -d sporks ]; then
 	printf "${RED}sporks BOOTSTRAP DIRECTORY NOT FOUND. ${GREEN}REMOVING BOOTSTRAP COPY FROM DOCKERFILE.${NC}\n"
-	sed -e "s/COPY\ --chown=aprcoin:aprcoin\ sporks\ \/home\/aprcoin\/.aprcoin\/sporks/#COPY\ --chown=aprcoin:aprcoin\ sporks\ \/home\/aprcoin\/.aprcoin\/sporks/g" Dockerfile
+	sed -i "s/COPY\ --chown=aprcoin:aprcoin\ sporks\ \/home\/aprcoin\/.aprcoin\/sporks/#COPY\ --chown=aprcoin:aprcoin\ sporks\ \/home\/aprcoin\/.aprcoin\/sporks/g" Dockerfile
 	fi
 if [ -d sporks ];then
 	printf "${GREEN}sporks... BOOTSTRAP DIRECTORY FOUND.${NC}\n"
 	fi
 if [ ! -d chainstate ]; then
         printf "${RED}chainstate... BOOTSTRAP DIRECTORY NOT FOUND. ${GREEN}REMOVING BOOTSTRAP COPY FROM DOCKERFILE.${NC}\n"
-	 sed -e "s/COPY\ --chown=aprcoin:aprcoin\ chainstate\ \/home\/aprcoin\/.aprcoin\/chainstate/#COPY\ --chown=aprcoin:aprcoin\ chainstate\ \/home\/aprcoin\/.aprcoin\/chainstate/g" Dockerfile
+	 sed -i "s/COPY\ --chown=aprcoin:aprcoin\ chainstate\ \/home\/aprcoin\/.aprcoin\/chainstate/#COPY\ --chown=aprcoin:aprcoin\ chainstate\ \/home\/aprcoin\/.aprcoin\/chainstate/g" Dockerfile
 	fi
 if [ -d chainstate ];then
 	printf "${GREEN}chainstate... BOOTSTRAP DIRECTORY FOUND.${NC}\n"
 	fi
 if [ ! -d blocks ]; then
 	printf "${RED}blocks... BOOTSTRAP DIRECTORY NOT FOUND. ${GREEN}REMOVING BOOTSTRAP COPY FROM DOCKERFILE.${NC}\n"
-	sed -e "s/COPY\ --chown=aprcoin:aprcoin\ blocks\ \/home\/aprcoin\/.aprcoin\/blocks/#COPY\ --chown=aprcoin:aprcoin\ blocks\ \/home\/aprcoin\/.aprcoin\/blocks/g" Dockerfile
+	sed -i "s/COPY\ --chown=aprcoin:aprcoin\ blocks\ \/home\/aprcoin\/.aprcoin\/blocks/#COPY\ --chown=aprcoin:aprcoin\ blocks\ \/home\/aprcoin\/.aprcoin\/blocks/g" Dockerfile
 	fi
 if [ -d blocks ];then
          printf "${GREEN}blocks... BOOTSTRAP DIRECTORY FOUND.${NC}\n"
