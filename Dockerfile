@@ -38,5 +38,4 @@ COPY --chown=aprcoin:aprcoin chainstate /home/aprcoin/.aprcoin/chainstate
 COPY --chown=aprcoin:aprcoin sporks /home/aprcoin/.aprcoin/sporks
 ##End blockchain section.
 COPY --chown=aprcoin:aprcoin aprcoin.conf /home/aprcoin/.aprcoin/
-COPY --chown=aprcoin:aprcoin peers.dat /home/aprcoin/.aprcoin/
 ENTRYPOINT [ "/init" ]
