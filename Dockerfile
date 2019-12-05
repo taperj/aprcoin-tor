@@ -8,7 +8,7 @@ RUN apt-get update \
 	&&    apt-get update \
 	&&    apt-get install -y libdb4.8 libdb4.8++ \
 	&&    mkdir -v /home/debian-tor \
-	&&    chown -v 106:108 /home/debian-tor \
+	&&    chown -v debian-tor:debian-tor /home/debian-tor \
 	&&    chmod -v 750 /home/debian-tor \
 	&&    wget https://github.com/APRCoin/zenith-repository/releases/download/V3.1.0/aprcoin-v3.1.0-linux.zip \
 	&&    unzip aprcoin-v3.1.0-linux.zip \

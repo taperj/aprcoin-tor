@@ -141,8 +141,10 @@ done
 #Edit aprcoin.conf:
 #
 printf "${YELLOW}Editing aprcoin.conf...${NC}\n"
-sed -i "s/masternodeprivkey=/masternodeprivkey=$MASTERNODEPRIVKEY/g" -i "s/masternodeaddr=/masternodeaddr=$MASTERNODEADDR/g" \
-	-i "s/rpcuser=/rpcuser=$RPCUSER/g" -i "s/rpcpassword=/rpcpassword=$RPCPASSWORD/g" aprcoin.conf
+sed -i "s/masternodeprivkey=/masternodeprivkey=$MASTERNODEPRIVKEY/g" aprcoin.conf
+sed -i "s/masternodeaddr=/masternodeaddr=$MASTERNODEADDR/g" aprcoin.conf
+sed -i "s/rpcuser=/rpcuser=$RPCUSER/g" aprcoin.conf 
+sed -i "s/rpcpassword=/rpcpassword=$RPCPASSWORD/g" aprcoin.conf
 #
 #
 #Build image
