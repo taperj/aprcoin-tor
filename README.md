@@ -12,7 +12,7 @@ clone the repository with git:<br>
 Change directory to the root of the project:<br>
 <code>cd aprcoin-tor</code><br>
 (if you want to bootstrap the blockchain upload the chainstate, sporks, and blocks directories you want to use to the root directory of the project, if not bootstrapping then simply run the script and aprcoind will sync the blockchain from scratch)<br>
-<code>./install.sh</code><br>
+<code>sudo ./install.sh</code><br>
 
 
 <b>OLD NEED TO KNOW INFO TO BUILD: DEPRECATED, left for general info</b><br>
