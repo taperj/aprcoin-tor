@@ -29,7 +29,8 @@ RUN apt-get update \
         # new password in plain text, not hashed.
 	&&    echo "HashedControlPassword 16:308DF1B8630F039660304560615E238EC2F1E6A992BB94C67CE4CD60D5" >> /etc/tor/torrc \
 	&&    echo "ControlPort 9051" >> /etc/tor/torrc \
-	&&    echo "Done."
+	&&    echo "Done." \
+	&&    echo "This may take a moment..."
 
 COPY ./services /etc/services.d/
 ##Comment out the next 3 lines if you are going to sync the blockchain from scratch. 
