@@ -1,4 +1,14 @@
 #!/usr/bin/with-contenv sh
 echo >&2 "starting APRCoinD"
 HOME=/home/aprcoin
-sudo -u aprcoin aprcoind
+
+for file in /root/reindex
+do
+if [ -f $file ]; then
+        printf "reindex file detected, starting aprcoind with -reindex\n"
+        rm -fvr /root/reindex
+        sudo -u aprcoin aprcoind -reindex
+else
+        sudo -u aprcoin aprcoind
+fi
+done
