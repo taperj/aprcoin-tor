@@ -9,6 +9,7 @@ if [ -f $file ]; then
         rm -fvr /root/reindex
         sudo -u aprcoin aprcoind -reindex
 else
+        printf "reindex file not detected, starting aprcoind\n"
         sudo -u aprcoin aprcoind
 fi
 done
