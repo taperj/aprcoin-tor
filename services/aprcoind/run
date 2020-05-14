@@ -2,6 +2,8 @@
 echo >&2 "starting APRCoinD"
 HOME=/home/aprcoin
 
+#reindex if reindex file found
+
 for file in /root/reindex
 do
 if [ -f $file ]; then
