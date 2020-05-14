@@ -17,6 +17,13 @@ Set the installer to executable:<br>
 Run the installer:<br>
 <code>sudo ./install.sh</code><br>
 
+<b>Feature addition 05-13-2020</b><br>
+if reindex is needed<br>
+<code>
+touch /root/reindex
+</code><br>
+aprcoind initscript now searches for for reindex file and will remove it after starting with -reindex
+
 
 <b>OLD NEED TO KNOW INFO TO BUILD: DEPRECATED, left for general info</b><br>
 The Dockerfile is configured to use the docker COPY function to copy the blockchain into the image as a bootstrap. I am not able to upload the blockchain to be pulled from github due to filesize restrictions. As this is meant for a hot-cold setup I would suggest syncing your cold wallet on your local pc fully, once synced shutdown aprcoin-qt and sync the blocks, chainstate, and sporks directories to the root directory of the project. If you do not want to go through this you may comment out the three lines in the Dockerfile that deal with copying these 3 directories into the image and on start aprcoind will begin syncing the blockchain from scratch.
