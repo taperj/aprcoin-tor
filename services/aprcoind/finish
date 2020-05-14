@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+aprcoin-cli stop
+
 echo >&2 "APRCoinD exited. code=${1}"
 
 # terminate other services to exit from the container
